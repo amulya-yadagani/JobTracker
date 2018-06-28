@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs jt-nav-tabs">
+  <li [ngClass]="{'active':eachTab.selected}" *ngFor="let eachTab of setTabList" (click)="selectedTab(eachTab)">
+    <a href="javascript:void(0)" data-toggle="tab" href="#{{eachTab.tabName}}">{{eachTab.tabName}}</a>
+  </li>
+</ul>

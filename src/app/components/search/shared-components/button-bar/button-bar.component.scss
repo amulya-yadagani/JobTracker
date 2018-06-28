@@ -1,0 +1,23 @@
+@import '../../search.component.scss';
+
+.jt-action-container {
+    background: $backgroundLightColor;
+    display: flex;
+    padding: 0% 2%;
+    margin: 1px 0px;
+    justify-content: flex-end;
+    width: 100%;
+}
+.jt-action-responsive-container {
+    background: $backgroundLightColor;
+    display: flex;
+    flex-direction: column;
+}
+
+.jt-disabled-access {
+    cursor: not-allowed;
+    background: $disableColor;
+    &:hover {
+        background: $disableColor;
+    }
+}

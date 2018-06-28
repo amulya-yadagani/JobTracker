@@ -1,0 +1,61 @@
+form {
+  position: relative;
+  background-color: rgba(60, 141, 188, 0.302);
+  border-radius: 5px;
+  fieldset {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-bottom: 0.75em;
+  }
+
+  legend {
+    padding: 5px;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .row {
+    margin-bottom: 5px;
+  }
+
+  input,select {
+    height: 2.5rem;
+  }
+
+  label {
+    font-weight: 600;
+  }
+
+  span {
+    white-space: nowrap;
+    text-align: right;
+  }
+}
+
+div#search, div#upload {
+    margin: 10px 0px;
+}
+
+input[type="radio"]{
+    margin-top: 0px;
+}
+
+label.radio-inline{
+    font-weight: 400 !important;
+    vertical-align: top;
+}
+
+app-search-button-bar {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+}
+
+.form-group-sm select.form-control{
+  padding: 2px 10px;
+}
+
+select:ng-invalid{
+  border-color: red;
+}

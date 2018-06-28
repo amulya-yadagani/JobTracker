@@ -1,0 +1,52 @@
+<div class="jt-thumbnail-container-view" [hidden]="!searched">
+  <ul class="jt-thumbnail-card-view">
+    <li *ngFor="let eachThumbNail of resultInformation; let i = index;">
+      <div id="img-box">
+          {{eachThumbNail | json}}
+        <img *ngIf="eachThumbNail.thumbnail" id="jt-thumbnail-img_{{eachThumbNail.digAssetFileId}}" class="jt-thumbnail-img" src="{{'data:image/png;base64,' + eachThumbNail.thumbnail}}"  alt="No Image">
+        <img *ngIf="!eachThumbNail.thumbnail" id="jt-thumbnail-img_{{eachThumbNail.digAssetFileId}}" class="jt-thumbnail-img" src="{{'assets/job_tracker_' + eachThumbNail.fileExtension + '.png'}}"  alt="No Image">
+      </div>
+      <div class="checkbox caption">
+        <label><input type="checkbox" [(ngModel)]="eachThumbNail.selected" (change)="onChkSelectionChanges(eachThumbNail)"/><span class="jt-thumbnail-tooltip" data-toggle="tooltip" [title]="eachThumbNail.fileName">{{eachThumbNail.fileName}}</span></label>
+        <a href="javascript:void(0)" (click)="onShowDetails(eachThumbNail)">Details</a>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="well well-xs well-xs__modified">
+  <nav aria-label="Page navigation example footer" class="footer" [hidden]="!searched">
+      <ul class="pagination pagination-sm">
+          <li class="page-item">
+              <a class="btn btn-link page-link" aria-label="Previous" (click)="onBackWardAction()">
+                  <span class="glyphicon glyphicon-fast-backward"></span>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="btn btn-link page-link" aria-label="Previous" (click)="onBackAction()">
+                  <span class="glyphicon glyphicon-triangle-left"></span>
+              </a>
+          </li>
+          <li class="page-item"><a class="page-link">{{trackPageIndex}}</a></li>
+          <li class="page-item">
+              <a class="btn btn-link page-link" aria-label="Next" (click)="onNextAction()">
+                  <span class="glyphicon glyphicon-triangle-right"></span>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="btn btn-link page-link" aria-label="Next" (click)="onForwardAction()">
+                  <span class="glyphicon glyphicon-fast-forward"></span>
+              </a>
+          </li>
+      </ul>
+  </nav>
+  <p class="footer">Total Count = {{trackTotalItemSize}}</p>
+  <span class="footer-right">
+  <span class="footer">Records Per Page</span>
+  <select class="footer" [(ngModel)]="trackPageSize" (change)="onPageSizeChangeAction()">
+      <option>25</option>
+      <option>50</option>
+      <option>75</option>
+  </select>
+  <span>&nbsp;&nbsp;&nbsp;</span>
+  <span class="footer">Page <input type="text" [(ngModel)]="trackPageChangeIndex" (change)="onPageIndexChangeAction()" required> | {{trackTotalPageSize}}</span></span>
+</div>

@@ -1,0 +1,54 @@
+<nav class="navbar navbar-jt">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" (click)="onLogoClick()"><img class="img-responsive logo" src="assets/job_tracker_logo_final.png" /></a>
+    </div>
+    <form class="navbar-form navbar-right">
+      <span class="user">Welcome <span>{{displayName}}</span></span>
+      <a routerLink="/job-list" class="jt-link" routerLinkActive="active">Job List</a>
+      <a routerLink="/job-request" class="jt-link" routerLinkActive="active">Job Request</a>
+      <div class="form-group">
+        <div class="dropdown dropdown-jt" (mouseleave)="onMenuMouseLeave($event)">
+            <a class="btn btn-link dropdown-toggle" data-toggle="dropdown" role="button" (mouseenter)="onMenuMouseEnter($event)">Search By
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu" (click)="onMenuItemSelect($event)">
+              <li><a href="#">Request #</a></li>
+              <li><a href="#">Job #</a></li>
+              <li><a href="#">File Name</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Recent Jobs</li>
+              <li *ngFor="let job of recentJobList"><a href="#" attr.data-job="{{job.requestNumber}}">{{job.jobNumber ? job.jobNumber : job.requestNumber}}</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control input-sm" placeholder="{{searchType}}">
+          <div class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="submit" style="height:2.5rem;">
+              <!-- <i class="glyphicon glyphicon-search"></i> -->
+              <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-link">Save</button>
+      <button type="button" class="btn btn-link" (click)="onNewJobRequest()">New</button>
+      <button type="button" class="btn btn-link">Copy</button>
+      <div class="dropdown dropdown-jt" (mouseleave)="onMenuMouseLeave($event)">
+        <a class="btn btn-link dropdown-toggle" role="button" data-toggle="dropdown" (mouseenter)="onMenuMouseEnter($event)">Tools
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu" (click)="onToolsItemSelect($event)">
+          <li><a routerLink="/search">Search/Upload</a></li>
+          <li><a href="//cmdashboard/ReportServer?/Consumer+Marketing/Portals/Job+Tracker+Portal&rs:Command=Render&rc:toolbar=False&PORTAL_NAME=Job+Tracker" target="_blank">Reports</a></li>
+          <li><a routerLink="/admin-tables" href="#">Admin Tables</a></li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</nav>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
+<div kendoDialogContainer></div>
+

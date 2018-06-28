@@ -1,0 +1,16 @@
+<div class="pane" [hidden]="!active">
+  <div class="row">
+    <div id="crumbs" class="col-sm-12 col-md-12">
+      <ul>
+        <li class="active"><a href="#request-{{id}}" data-toggle="tab"><span class="tab-title">Job Request</span></a></li>
+        <li><a href="#schedule-{{id}}" data-toggle="tab"><span class="tab-title">Schedule</span></a></li>
+        <li><a href="#approval-{{id}}" data-toggle="tab"><span class="tab-title">Approval</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content tab-jt">
+    <request id="request-{{id}}" [job]="_job" class="tab-pane active"></request>
+    <schedule id="schedule-{{id}}" [job]="_job" class="tab-pane"></schedule>
+    <approval id="approval-{{id}}" [job]="_job" class="tab-pane"></approval>
+  </div>
+</div>

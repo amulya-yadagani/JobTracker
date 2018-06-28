@@ -1,0 +1,20 @@
+<div class="jt-global-thumbnail-container">
+  <app-button-bar
+    [hidden]="!searched"
+    [onResultActionConfig]="resultAction"
+    [onResultTabType]="'global'"
+    [onResultType]="'thumbnail'"
+    (onResultAction)="onSetResultAction($event)">
+  </app-button-bar>
+  <app-thumbnail
+    [hidden]="!searched"
+    [onDetailUrl]="detailsURL"
+    [onDownloadUrl]="downloadURL"
+    [onResultRecieved]="onResultRecieved"
+    [onPageInformationChanges]="pageInformation"
+    [onDetailEvents] = "detailEventsThumbnail"
+    (onThumbNailAction)="onThumbNailActionUpdate($event)"
+    (onPageChange)="onPageChangeAction($event)"
+    (onPageSizeChange)="onPageSizeChangeAction($event)">
+  </app-thumbnail>
+</div>

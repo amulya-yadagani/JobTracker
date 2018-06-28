@@ -1,0 +1,10 @@
+<div>
+  <div>
+    <h4>{{title}}</h4>
+    <p *ngFor="let eachRejInfo of rejInfo">{{eachRejInfo.fileName}}</p>
+  </div>
+  <div>
+    <button class="jt-common-button-style" (click)="cancelTriggered()">Cancel</button>
+    <button [ngClass]="{'disableBtn': disableDownloadBtn === true}" class="jt-common-button-style" (click)="okayTriggered()" [disabled]="disableDownloadBtn">Procced with Download?</button>
+  </div>
+</div>

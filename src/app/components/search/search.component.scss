@@ -1,0 +1,108 @@
+@import '../../app.component.scss';
+
+//--------------variables--------------------//
+$backgroundColor: #3c8dbc;
+$backgroundDarkColor: rgba(0,0,0,.125);
+$backgroundLightColor: #aad1f3;
+$backgroundHoverColor: #23527c;
+$white: white;
+$black: black;
+$light-black: #ddd;
+$dark-border: #999;
+$disableColor: #b3b3c3;
+$min-elm-line-height: 3.5rem;
+$min-elm-height: 2.5rem;
+$min-elm-width: 9rem;
+//-------------------------------------------//
+//-------------Mixin-------------------------//
+@mixin flex {
+    display: -webkit-flex !important;
+    display: flex !important;
+    display: -ms-flex !important;
+}
+//-------------------------------------------//
+
+//-------------comman search container-------//
+.jt-common-search-container-style {
+    // background: $backgroundColor;
+    // border-radius: 40px;
+    border: 1px solid $light-black;
+    padding: 0.5% 0rem;
+    border-radius: 5px;
+}
+//-------------------------------------------//
+//-------------Tab Btn-----------------------//
+.jt-common-tab-style {
+    background: $white;
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+    border: 0.1rem solid $backgroundDarkColor;
+    border-top: 0.4rem solid $backgroundDarkColor;
+    margin-left: 0.1rem;
+    color: $backgroundColor;
+    font-weight: 600;
+    vertical-align: middle;
+    height: $min-elm-height !important;
+    min-width: $min-elm-width;
+    position: relative !important;
+    top: 1px;
+    &:focus {
+        outline: 0;
+    }
+    &:hover {
+        transition: 0.5s;
+        border-top: 0.4rem solid $backgroundLightColor;
+    }
+}
+.jt-common-selected-tab-style {
+    border-top: 0.4rem solid $backgroundColor;
+    border-bottom: 0rem;
+    position: relative !important;
+    top: 2px;
+    right: 1px;
+}
+//-------------------------------------------//
+//--------------common-btn-------------------//
+.jt-common-button-style {
+    background: $backgroundColor;
+    border: 0px;
+    margin-left: 0.2rem;
+    color: $white;
+    font-weight: 600;
+    vertical-align: middle;
+    height: $min-elm-height !important;
+    min-width: $min-elm-width;
+    //border-radius: 0px;
+    &:focus {
+        outline: 0;
+    }
+    &:hover {
+        transition: 0.5s;
+        background:$backgroundHoverColor;
+        color: $white;
+    }
+}
+.jt-common-responsive-button-style {
+    background: $backgroundColor;
+    border: 0.1rem solid;
+    color: $white;
+    font-weight: 600;
+    vertical-align: middle;
+    height: $min-elm-height;
+    &:focus {
+        outline: 0;
+    }
+    &:hover {
+        transition: 0.5s;
+        background:$backgroundHoverColor;
+        color: $white;
+    }
+}
+//----------Input style-------------------//
+.jt-common-input-style {
+    height: $min-elm-height;
+    width: $min-elm-width;
+}
+//-------------------------------------------//
+
+

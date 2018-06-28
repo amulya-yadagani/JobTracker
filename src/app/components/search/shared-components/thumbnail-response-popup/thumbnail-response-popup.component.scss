@@ -1,0 +1,11 @@
+@import "../../search.component.scss";
+
+.jt-file-error-message-container {
+    h4, h5 {
+        color: $backgroundColor;
+    }
+}
+
+.jt-file-error-message {
+    border: 1px solid $light-black;
+}

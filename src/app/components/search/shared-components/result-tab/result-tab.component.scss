@@ -1,0 +1,26 @@
+@import '../../search.component.scss';
+
+.jt-nav-tabs {
+    li {
+        a {
+            padding: 3px;
+            color: $backgroundColor;
+            min-width: $min-elm-width;
+            text-align: center;
+            border-top: 1px solid $light-black;
+            border-left: 1px solid $light-black;
+            border-right: 1px solid $light-black;
+            border-top-right-radius: 12px;
+            border-top-left-radius: 12px;
+        }
+        a:hover {
+            background: $white;
+        }
+    }
+}
+
+.active {
+    a {
+        border-top: 3px solid $backgroundColor !important;
+    }
+}

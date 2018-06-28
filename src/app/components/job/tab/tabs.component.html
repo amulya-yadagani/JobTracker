@@ -1,0 +1,14 @@
+<div class="tab-root">
+  <ul class="nav nav-tabs tabs-jt">
+    <!-- <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
+      <a href="#">{{tab.title}}</a>
+    </li> -->
+    <li *ngFor="let tab of dynTabs">
+      <a [class.active]="tab.active" (click)="selectTab(tab)">{{tab.title}}
+        <span class="close gap" *ngIf="tab.isCloseable" (click)="closeTab(tab)">&times;</span>
+      </a>
+    </li>
+  </ul>
+  <!-- <ng-content></ng-content> -->
+  <ng-template dynamic-tabs></ng-template>
+</div>

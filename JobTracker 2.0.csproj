@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6E22F86B-CA3E-4370-AB3C-AD2963FFAA99}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JobTracker_2._0</RootNamespace>
+    <AssemblyName>JobTracker 2.0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="e2e\app.e2e-spec.ts" />
+    <Content Include="e2e\app.po.ts" />
+    <Content Include="karma.conf.js" />
+    <Content Include="protractor.conf.js" />
+    <Content Include="scripts\update-version.js" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\app.component.spec.ts" />
+    <Content Include="src\app\app.component.ts" />
+    <Content Include="src\app\app.module.ts" />
+    <Content Include="src\app\app.routing.ts" />
+    <Content Include="src\app\app.service.ts" />
+    <Content Include="src\app\components\admin\aam-tag\aam-tag.component.html" />
+    <Content Include="src\app\components\admin\aam-tag\aam-tag.component.ts" />
+    <Content Include="src\app\components\admin\admin-tables.component.html" />
+    <Content Include="src\app\components\admin\admin-tables.component.ts" />
+    <Content Include="src\app\components\admin\component-table\component-table.component.html" />
+    <Content Include="src\app\components\admin\component-table\component-table.component.ts" />
+    <Content Include="src\app\components\admin\magazine\magazine.component.html" />
+    <Content Include="src\app\components\admin\magazine\magazine.component.ts" />
+    <Content Include="src\app\components\admin\permium-category\premium-category.component.html" />
+    <Content Include="src\app\components\admin\permium-category\premium-category.component.ts" />
+    <Content Include="src\app\components\admin\premium-sub-category\premium-sub-category.component.html" />
+    <Content Include="src\app\components\admin\premium-sub-category\premium-sub-category.component.ts" />
+    <Content Include="src\app\components\common\multi-select\multi-select.component.html" />
+    <Content Include="src\app\components\common\multi-select\multi-select.component.ts" />
+    <Content Include="src\app\components\job-list\all-jobs\all-jobs.component.html" />
+    <Content Include="src\app\components\job-list\all-jobs\all-jobs.component.ts" />
+    <Content Include="src\app\components\job-list\all-my-jobs\all-my-jobs.component.html" />
+    <Content Include="src\app\components\job-list\all-my-jobs\all-my-jobs.component.ts" />
+    <Content Include="src\app\components\job-list\creative-todo-list\creative-todo-list.component.html" />
+    <Content Include="src\app\components\job-list\creative-todo-list\creative-todo-list.component.ts" />
+    <Content Include="src\app\components\job-list\grid\job-list-grid.component.html" />
+    <Content Include="src\app\components\job-list\grid\job-list-grid.component.ts" />
+    <Content Include="src\app\components\job-list\job-list.component.html" />
+    <Content Include="src\app\components\job-list\job-list.component.ts" />
+    <Content Include="src\app\components\job-list\job-list.service.ts" />
+    <Content Include="src\app\components\job-list\my-todo-list\my-todo-list.component.html" />
+    <Content Include="src\app\components\job-list\my-todo-list\my-todo-list.component.ts" />
+    <Content Include="src\app\components\job-list\my-todo-list\my-todo-list.service.ts" />
+    <Content Include="src\app\components\job\approval\approval.component.html" />
+    <Content Include="src\app\components\job\approval\approval.component.ts" />
+    <Content Include="src\app\components\job\common\backup.components.html" />
+    <Content Include="src\app\components\job\common\backup.components.ts" />
+    <Content Include="src\app\components\job\common\current.versions.component.html" />
+    <Content Include="src\app\components\job\common\current.versions.component.ts" />
+    <Content Include="src\app\components\job\common\roles.component.html" />
+    <Content Include="src\app\components\job\common\roles.component.ts" />
+    <Content Include="src\app\components\job\common\version-history.component.html" />
+    <Content Include="src\app\components\job\common\version-history.component.ts" />
+    <Content Include="src\app\components\job\job-request\details.component.html" />
+    <Content Include="src\app\components\job\job-request\details.component.ts" />
+    <Content Include="src\app\components\job\job-request\job-request.component.html" />
+    <Content Include="src\app\components\job\job-request\job-request.component.ts" />
+    <Content Include="src\app\components\job\job-request\overview\overview.component.html" />
+    <Content Include="src\app\components\job\job-request\overview\overview.component.spec.ts" />
+    <Content Include="src\app\components\job\job-request\overview\overview.component.ts" />
+    <Content Include="src\app\components\job\job-request\request.component.html" />
+    <Content Include="src\app\components\job\job-request\request.component.ts" />
+    <Content Include="src\app\components\job\schedule\schedule.component.html" />
+    <Content Include="src\app\components\job\schedule\schedule.component.ts" />
+    <Content Include="src\app\components\job\schedule\workflow.component.html" />
+    <Content Include="src\app\components\job\schedule\workflow.component.ts" />
+    <Content Include="src\app\components\job\tab\tab.component.html" />
+    <Content Include="src\app\components\job\tab\tab.component.ts" />
+    <Content Include="src\app\components\job\tab\tabs.component.html" />
+    <Content Include="src\app\components\job\tab\tabs.component.ts" />
+    <Content Include="src\app\components\search\cover-search\cover-search.component.html" />
+    <Content Include="src\app\components\search\cover-search\cover-search.component.spec.ts" />
+    <Content Include="src\app\components\search\cover-search\cover-search.component.ts" />
+    <Content Include="src\app\components\search\cover-search\cover-search.service.ts" />
+    <Content Include="src\app\components\search\digital-assets\digital-asset-details-search\digital-asset-details-search.component.html" />
+    <Content Include="src\app\components\search\digital-assets\digital-grid-view\digital-grid-view.component.html" />
+    <Content Include="src\app\components\search\global-search\global-grid-list\global-grid-list.component.html" />
+    <Content Include="src\app\components\search\global-search\global-grid-list\global-grid-list.component.spec.ts" />
+    <Content Include="src\app\components\search\global-search\global-grid-list\global-grid-list.component.ts" />
+    <Content Include="src\app\components\search\global-search\global-grid-list\global-grid-list.service.spec.ts" />
+    <Content Include="src\app\components\search\global-search\global-grid-list\global-grid-list.service.ts" />
+    <Content Include="src\app\components\search\global-search\global-search.component.html" />
+    <Content Include="src\app\components\search\global-search\global-search.component.spec.ts" />
+    <Content Include="src\app\components\search\global-search\global-search.component.ts" />
+    <Content Include="src\app\components\search\global-search\global-search.service.spec.ts" />
+    <Content Include="src\app\components\search\global-search\global-search.service.ts" />
+    <Content Include="src\app\components\search\global-search\global-thumb-nail\global-thumb-nail.component.html" />
+    <Content Include="src\app\components\search\global-search\global-thumb-nail\global-thumb-nail.component.spec.ts" />
+    <Content Include="src\app\components\search\global-search\global-thumb-nail\global-thumb-nail.component.ts" />
+    <Content Include="src\app\components\search\pdf-final-search\pdf-final-search.component.html" />
+    <Content Include="src\app\components\search\pdf-final-search\pdf-final-search.component.spec.ts" />
+    <Content Include="src\app\components\search\pdf-final-search\pdf-final-search.component.ts" />
+    <Content Include="src\app\components\search\pdf-final-search\pdf-final-search.service.ts" />
+    <Content Include="src\app\components\search\search-action\search-action.component.html" />
+    <Content Include="src\app\components\search\search-action\search-action.component.spec.ts" />
+    <Content Include="src\app\components\search\search-action\search-action.component.ts" />
+    <Content Include="src\app\components\search\search-state.service.spec.ts" />
+    <Content Include="src\app\components\search\search-state.service.ts" />
+    <Content Include="src\app\components\search\search.component.html" />
+    <Content Include="src\app\components\search\search.component.spec.ts" />
+    <Content Include="src\app\components\search\search.component.ts" />
+    <Content Include="src\app\components\search\shared-components\generate-download-info\generate-download-info.component.html" />
+    <Content Include="src\app\components\search\shared-components\generated-thumbnail-info\generated-thumbnail-info.component.html" />
+    <Content Include="src\app\components\search\shared-components\gridlist\gridlist.component.html" />
+    <Content Include="src\app\components\search\shared-components\jt-drop-down\jt-drop-down.component.html" />
+    <Content Include="src\app\components\search\shared-components\jt-drop-down\jt-drop-down.component.spec.ts" />
+    <Content Include="src\app\components\search\shared-components\jt-drop-down\jt-drop-down.component.ts" />
+    <Content Include="src\app\components\search\shared-components\jt-input\jt-input.component.html" />
+    <Content Include="src\app\components\search\shared-components\jt-input\jt-input.component.spec.ts" />
+    <Content Include="src\app\components\search\shared-components\jt-input\jt-input.component.ts" />
+    <Content Include="src\app\components\search\shared-components\result-actions\result-actions.component.html" />
+    <Content Include="src\app\components\search\shared-components\result-tab\result-tab.component.html" />
+    <Content Include="src\app\components\search\shared-components\search-button-bar\search-button-bar.component.html" />
+    <Content Include="src\app\components\search\shared-components\search-button-bar\search-button-bar.component.spec.ts" />
+    <Content Include="src\app\components\search\shared-components\search-button-bar\search-button-bar.component.ts" />
+    <Content Include="src\app\components\search\shared-components\thumbnail\thumbnail.component.html" />
+    <Content Include="src\app\directives\dynamic-tabs.directive.ts" />
+    <Content Include="src\app\guards\admin-table-guard.ts" />
+    <Content Include="src\app\state\app-state.service.ts" />
+    <Content Include="src\app\utils\constants.ts" />
+    <Content Include="src\app\utils\loader.service.ts" />
+    <Content Include="src\app\utils\logger.service.ts" />
+    <Content Include="src\app\utils\notification.service.ts" />
+    <Content Include="src\app\utils\reuse-strategy.ts" />
+    <Content Include="src\app\utils\utils.ts" />
+    <Content Include="src\assets\job_tracker_DOC.png" />
+    <Content Include="src\assets\job_tracker_DOCX.png" />
+    <Content Include="src\assets\job_tracker_EPS.png" />
+    <Content Include="src\assets\job_tracker_JPG.png" />
+    <Content Include="src\assets\job_tracker_logo_final.png" />
+    <Content Include="src\assets\job_tracker_PDF.png" />
+    <Content Include="src\assets\Job_tracker_PNG.png" />
+    <Content Include="src\assets\job_tracker_TIF.png" />
+    <Content Include="src\environments\environment.prod.ts" />
+    <Content Include="src\environments\environment.qa.ts" />
+    <Content Include="src\environments\environment.ts" />
+    <Content Include="src\environments\environment.uat.ts" />
+    <Content Include="src\index.html" />
+    <Content Include="src\main.ts" />
+    <Content Include="src\polyfills.ts" />
+    <Content Include="src\test.ts" />
+    <Content Include="src\typings.d.ts" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".angular-cli.json" />
+    <None Include="e2e\tsconfig.e2e.json" />
+    <None Include="package.json" />
+    <None Include="README.md" />
+    <None Include="src\app\app.component.scss" />
+    <None Include="src\app\components\job-list\grid\job-list-grid.component.scss" />
+    <None Include="src\app\components\job-list\job-list.component.scss" />
+    <None Include="src\app\components\job\job-request\job-request.component.scss" />
+    <None Include="src\app\components\job\job-request\overview\overview.component.scss" />
+    <None Include="src\app\components\job\job-request\request.component.scss" />
+    <None Include="src\app\components\job\tab\tab.component.scss" />
+    <None Include="src\app\components\job\tab\tabs.component.scss" />
+    <None Include="src\app\components\search\cover-search\cover-search.component.scss" />
+    <Content Include="src\app\components\search\digital-assets\digital-grid-view\digital-grid-view.component.scss" />
+    <Content Include="src\app\components\search\digital-assets\digital-asset-details-search\digital-asset-details-search.component.scss" />
+    <None Include="src\app\components\search\global-search\global-grid-list\global-grid-list.component.scss" />
+    <None Include="src\app\components\search\global-search\global-search.component.scss" />
+    <None Include="src\app\components\search\global-search\global-thumb-nail\global-thumb-nail.component.scss" />
+    <None Include="src\app\components\search\pdf-final-search\pdf-final-search.component.scss" />
+    <None Include="src\app\components\search\search-action\search-action.component.scss" />
+    <None Include="src\app\components\search\search.component.scss" />
+    <None Include="src\app\components\search\search.style.scss" />
+    <Content Include="src\app\components\search\shared-components\generate-download-info\generate-download-info.component.scss" />
+    <Content Include="src\app\components\search\shared-components\generated-thumbnail-info\generated-thumbnail-info.component.scss" />
+    <Content Include="src\app\components\search\shared-components\gridlist\gridlist.component.scss" />
+    <None Include="src\app\components\search\shared-components\jt-drop-down\jt-drop-down.component.scss" />
+    <None Include="src\app\components\search\shared-components\jt-input\jt-input.component.scss" />
+    <Content Include="src\app\components\search\shared-components\result-actions\result-actions.component.scss" />
+    <Content Include="src\app\components\search\shared-components\result-tab\result-tab.component.scss" />
+    <Content Include="src\app\components\search\shared-components\thumbnail\thumbnail.component.scss" />
+    <None Include="src\app\components\search\shared-components\search-button-bar\search-button-bar.component.scss" />
+    <None Include="src\styles.scss" />
+    <None Include="src\tsconfig.app.json" />
+    <None Include="src\tsconfig.spec.json" />
+    <None Include="tsconfig.json" />
+    <None Include="tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\components\search\digital-assets\digital-asset-details-search\digital-asset-details-search.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\search\digital-assets\digital-asset-details-search\digital-asset-details-search.component.ts" />
+    <TypeScriptCompile Include="src\app\components\search\digital-assets\digital-grid-view\digital-grid-view.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\search\digital-assets\digital-grid-view\digital-grid-view.component.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\generate-download-info\generate-download-info.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\generate-download-info\generate-download-info.component.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\generated-thumbnail-info\generated-thumbnail-info.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\generated-thumbnail-info\generated-thumbnail-info.component.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\gridlist\gridlist.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\gridlist\gridlist.component.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\result-actions\result-actions.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\result-actions\result-actions.component.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\result-actions\result-actions.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\result-actions\result-actions.service.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\result-tab\result-tab.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\result-tab\result-tab.component.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\thumbnail\thumbnail.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\search\shared-components\thumbnail\thumbnail.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50650</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

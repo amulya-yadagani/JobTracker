@@ -1,0 +1,18 @@
+@include exports("dropdownlist/layout") {
+
+    .k-dropdown {
+
+        .k-select {
+            border-width: 0;
+        }
+
+    }
+
+    .k-dropdown-wrap {
+        outline: 0;
+
+        > .k-input {
+            flex: 1;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.user {
+  border-right: 1px solid #FFFFFF;
+  //padding: 5px 20px 5px 0;
+  padding-right: 20px;
+  vertical-align: middle;
+  & > span {
+    font-weight: bold
+  }
+}
+
+a.navbar-brand:hover {
+  cursor: pointer;
+}
+
+div.container-fluid {
+  height: calc(100% - 52px);
+}

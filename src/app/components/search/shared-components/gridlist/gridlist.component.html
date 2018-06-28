@@ -1,0 +1,39 @@
+<div [id]="gridRefId" class="jt-grid-view"></div>
+<div class="well well-xs well-xs__modified">
+<nav aria-label="Page navigation example footer" class="footer" [hidden]="!searched">
+    <ul class="pagination pagination-sm">
+        <li class="page-item">
+            <a class="btn btn-link page-link" aria-label="Previous" (click)="onBackWardAction()">
+                <span class="glyphicon glyphicon-fast-backward"></span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="btn btn-link page-link" aria-label="Previous" (click)="onBackAction()">
+                <span class="glyphicon glyphicon-triangle-left"></span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link">{{trackPageIndex}}</a></li>
+        <li class="page-item">
+            <a class="btn btn-link page-link" aria-label="Next" (click)="onNextAction()">
+                <span class="glyphicon glyphicon-triangle-right"></span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="btn btn-link page-link" aria-label="Next" (click)="onForwardAction()">
+                <span class="glyphicon glyphicon-fast-forward"></span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<p class="footer">Total Count = {{trackTotalItemSize}}</p>
+<span class="footer-right">
+<span class="footer">Records Per Page</span>
+<select class="footer" [(ngModel)]="trackPageSize" (change)="onPageSizeChangeAction()">
+    <option>25</option>
+    <option>50</option>
+    <option>75</option>
+</select>
+<span>&nbsp;&nbsp;&nbsp;</span>
+<span class="footer">Page <input type="text" [(ngModel)]="trackPageChangeIndex" (change)="onPageIndexChangeAction()" required> | {{trackTotalPageSize}}</span></span>
+</div>
+  

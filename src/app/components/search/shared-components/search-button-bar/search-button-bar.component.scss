@@ -1,0 +1,7 @@
+@import '../../search.component.scss';
+
+.jt-field-search-container {
+    @include flex;
+    justify-content: space-between;
+    min-height: 3.4rem; 
+}

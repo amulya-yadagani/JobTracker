@@ -1,0 +1,99 @@
+@include exports("toolbar/layout") {
+
+    // Base
+    .k-toolbar {
+        padding: $toolbar-padding-y $toolbar-padding-x;
+        line-height: $form-line-height;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+
+        > * {
+            display: inline-flex;
+            align-items: stretch;
+            align-content: center;
+            vertical-align: middle;
+        }
+        > * + * {
+            margin-left: $toolbar-padding-x;
+        }
+        > .k-overflow-anchor + * {
+            margin-left: 0;
+        }
+
+        .k-button,
+        .k-button-group,
+        .k-separator,
+        .k-split-button,
+        .k-textbox,
+        .k-widget,
+        label {
+            vertical-align: middle;
+        }
+
+
+        // Button
+        .k-button {}
+
+        // Toggle button
+        .k-toggle-button {}
+
+        // Split button
+        .k-split-button {
+            .k-button:hover {
+                z-index: 2;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+
+        // Overflow anchor
+        .k-overflow-anchor {
+            @include border-radius( 0 );
+            padding: $toolbar-padding-y;
+            width: calc( #{$toolbar-inner-calc-size} );
+            height: calc( #{$toolbar-inner-calc-size} );
+            border-width: 0 0 0 1px;
+            border-color: inherit;
+            background-clip: padding-box;
+            box-sizing: border-box;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+
+        // Separator
+        .k-separator {
+            width: 0;
+            margin-top: -$toolbar-padding-y;
+            margin-bottom: -$toolbar-padding-y;
+            border-width: 0 0 0 1px;
+            border-style: solid;
+            border-color: inherit;
+            align-self: stretch;
+        }
+    }
+
+
+    .k-overflow-container {
+
+        // Group
+        .k-overflow-tool-group {
+            display: block;
+        }
+
+        // Hidden items
+        .k-tool.k-state-disabled,
+        .k-overflow-hidden {
+            display: none;
+        }
+    }
+
+}

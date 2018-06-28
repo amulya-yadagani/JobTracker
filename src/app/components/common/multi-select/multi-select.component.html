@@ -1,0 +1,10 @@
+<kendo-multiselect [data]="dataSource"
+  [kendoMultiSelectSummaryTag]="1"
+  [textField]="textField"
+  [valueField]="valueField"
+  (valueChange)="valueChange($event)"
+  [(ngModel)]="selectedValues">
+  <ng-template kendoMultiSelectGroupTagTemplate let-dataItems>
+    {{ dataItems.length }} more selected
+  </ng-template>
+</kendo-multiselect>

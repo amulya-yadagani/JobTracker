@@ -1,0 +1,74 @@
+@import '../../search.component.scss';
+
+.jt-thumbnail-container-view {
+    height: calc(100% - 77px);
+    position: relative;
+}
+.jt-thumbnail-card-view {
+    list-style-type: none;
+    padding: 0px;
+    overflow-y: scroll;
+    /* height: 100%; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    li {
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 4px;
+        border: 2px solid $backgroundLightColor;
+        background: $light-black;
+        margin-left: 0.5%;
+        margin-top: 0.5%;
+        padding: 0.3%;
+        height: 14rem;
+        width: 13rem;
+        label {
+            margin-bottom: 0px;
+            @include flex;
+            font-size: 12px;
+            cursor: default;
+        }
+        input {
+            min-height: 1.5rem;
+            min-width: 1.5rem;
+        }
+        img {
+            max-height: 9rem;
+            max-width: 11.6rem;
+        }
+        span {
+            display: block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            line-height: 1.8em;
+        }
+        a, a:focus {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        #img-box {
+          height: 9rem;
+        }
+    }
+}
+
+.tooltip-inner {
+    max-width: none !important;
+    white-space: nowrap !important;
+    word-break: break-all !important;
+}
+
+.caption {
+  margin: 0;
+}
+
+.well-xs__modified {
+    margin: 0px;
+    bottom: -3px;
+}

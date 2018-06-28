@@ -1,0 +1,9 @@
+@import "../../search.component.scss";
+
+.disableBtn {
+    cursor: not-allowed;
+    background: $light-black;
+    &:hover {
+        background: $light-black;
+    }
+}

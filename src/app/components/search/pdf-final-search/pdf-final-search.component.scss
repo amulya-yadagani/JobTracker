@@ -1,0 +1,43 @@
+@import '../search.component.scss';
+@import '../../../../styles.scss';
+
+.create-date {
+  width: 49%;
+  display: inline-block;
+}
+
+app-search-button-bar {
+  float: right;
+}
+
+.asterik{
+  color: red;
+  padding: 3px;
+}
+
+.jt-pdf-search-container {
+  height: calc(100% - 0px);
+}
+
+.jt-pdf-result-container {
+  height: calc(100% - 263px);
+  position: relative;
+}
+
+#pdf-tn-wrapper {
+  height: calc(100% - 72px);
+}
+
+#pdf-list-wrapper {
+  height: calc(100% - 72px);
+}
+
+.jt-pdf-datepicker {
+  display: flex;
+  flex-direction: row;
+}
+
+.jt-pdf-requestNo {
+  display: flex;
+  flex-direction: row;
+}

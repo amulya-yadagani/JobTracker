@@ -1,0 +1,56 @@
+<form #searchForm="ngForm" class="jt-common-search-container-style jt-field-intendation" novalidate>
+  <div class="btn-group jt-sub-field-conditional">
+    <button type="button" class="btn-xs dropdown-toggle jt-common-button-style" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{selectedLogic}} <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu jt-dropdown__modification">
+      <li (click)="setLogic('AND')"><a href="javascript:void(0)" class="jt-logic-item" [ngClass]="{'jt-sel-logic-active': 'AND' === selectedLogic}">AND</a></li>
+      <!-- <li role="separator" class="divider jt-divider__modification"></li> -->
+      <li (click)="setLogic('OR')"><a href="javascript:void(0)" class="jt-logic-item" [ngClass]="{'jt-sel-logic-active': 'OR' === selectedLogic}">OR</a></li>
+    </ul>
+  </div>
+  <span class="jt-mandatoryField--align">
+    <span class="required"></span>
+    <input type="text" #fileName1 autocomplete="off" class="jt-input-field form-control input-sm" id="file1.prop" name="file1.txt" [placeholder]="file1.txt" [(ngModel)]="file1.fieldData" pattern="/^[A-Za-z0-9]+$/" required/>
+  </span>
+  <span class="jt-mandatoryField--align">
+    <span class="required"></span>
+    <input type="text" #fileName2 autocomplete="off" class="jt-input-field form-control input-sm" id="file2.prop" name="file2.txt" [placeholder]="file2.txt" [(ngModel)]="file2.fieldData" pattern="/^[A-Za-z0-9]+$/" required/>
+  </span>
+  <span class="jt-mandatoryField--align">
+    <span class="required"></span>
+    <input type="text" #fileName3 autocomplete="off" class="jt-input-field form-control input-sm" id="file3.prop" name="file3.txt" [placeholder]="file3.txt" [(ngModel)]="file3.fieldData" pattern="/^[A-Za-z0-9]+$/" required/>
+  </span>
+  <app-search-button-bar [setTitle]="'Global'" (searched)="onSearch($event)" (cleared)="onClear($event)"></app-search-button-bar>
+</form>
+<div [hidden]="!showResultSection" class="jt-result-container">
+  <h4>Result</h4>
+  <app-result-tab [ontabload]="configTabList" (onTabSelection)="onTabSelection($event)"></app-result-tab>
+  <div class="jt-tab-content">
+    <div [hidden]="!configTabList[0].selected" id="thumbnail">
+      <app-global-thumb-nail 
+        #globalThumbnail
+        [resultInfo]="thumbnailModel"
+        [resultActionInfo]="resultThumbnailActionList"
+        [pageSearchInfo]="storeSearchPageInformation.searchInfo"
+        (onPageChanges)="onPageChangeAction($event)"
+        (onPageSizeChange)="onPageSizeChangeAction($event)"
+        (onThumbNailChange)="onThumbChangeAction($event)"
+        (onResultAction)="onResultActionChanges($event)">
+      </app-global-thumb-nail>
+    </div>
+    <div [hidden]="!configTabList[1].selected" id="list">
+      <app-global-grid-list
+        #globalList
+        [resultInfo]="gridModel"
+        [resultActionInfo]="resultListActionList"
+        [pageSearchInfo]="storeSearchPageInformation.searchInfo"
+        (onDownloadSelect)="onDownloadAction($event)"
+        (onPageChanges)="onPageChangeAction($event)"
+        (onPageSizeChange)="onPageSizeChangeAction($event)"
+        (onGridListChange)="onGridChangeAction($event)"
+        (onResultAction)="onResultActionChanges($event)"></app-global-grid-list>
+    </div>
+  </div>
+</div>
+

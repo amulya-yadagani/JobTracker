@@ -1,0 +1,24 @@
+<div class="jt-digital-assets-container">
+  <div>
+    <img class="jt-thumbnail-img" *ngIf="thumbnailDetails.thumbnail" id="jt-thumbnail-img_{{thumbnailDetails.digAssetFileId}}" class="jt-thumbnail-img" src="{{'data:image/png;base64,' + thumbnailDetails.thumbnail}}"  alt="No Image">
+    <img class="jt-thumbnail-img" *ngIf="!thumbnailDetails.thumbnail" id="jt-thumbnail-img_{{thumbnailDetails.digAssetFileId}}" class="jt-thumbnail-img" src="{{'assets/job_tracker_' + thumbnailDetails.fileExtension + '.png'}}"  alt="No Image">
+  </div>
+  <div>
+    <app-result-tab [ontabload]="tabList" (onTabSelection)="onTabSelected($event)"></app-result-tab>
+    <div class="jt-tab-content">
+      <div [hidden]="!(activeDigitalTab === 'details')">
+        <app-file-details-grid 
+        (downLoadFileId)="reqFileDownload($event)" 
+        (jobNoInfo)="jobNo($event)"
+        (reqNoInfo)="reqNo($event)"
+        [onGridId]="'global-digital-details'" 
+        [onDigitalColumn]="colList.details" 
+        [onDigitalInformation]="digitalInformation">
+      </app-file-details-grid>
+      </div>
+      <div [hidden]="!(activeDigitalTab === 'ext_properties')">
+        <app-file-details-grid [onGridId]="'global-digital-extProp'" [onDigitalColumn]="colList.extProp" [onDigitalInformation]="digitalInformation"></app-file-details-grid>
+      </div>
+    </div>
+  </div>
+</div>

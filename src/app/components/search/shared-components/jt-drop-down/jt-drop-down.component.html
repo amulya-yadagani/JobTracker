@@ -1,0 +1,8 @@
+<div>
+  <button class="btn-xs jt-common-button-style"></button>
+  <ul>
+    <li *ngFor="let eachDrop of dropdownList; let i = index;">
+      <button class="btn-xs jt-common-button-style" (click)="onSelectChange(eachDrop)">{{eachDrop}}</button>
+    </li>
+  </ul>
+</div>

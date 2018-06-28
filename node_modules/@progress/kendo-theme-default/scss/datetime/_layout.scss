@@ -1,0 +1,121 @@
+@include exports("datetime/layout") {
+
+    // Datepicker
+    .k-datepicker,
+    .k-datetimepicker,
+    .k-timepicker {
+
+        .k-i-warning {
+            display: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            overflow: visible;
+        }
+
+        .k-state-invalid {
+            .k-i-warning {
+                display: inline-block;
+            }
+        }
+
+        .k-dateinput {
+            width: 100%;
+            flex: 1;
+        }
+
+        .k-dateinput-wrap {
+            border: 0;
+            @include border-left-radius-only();
+        }
+
+        .k-rtl &,
+        &[dir='rtl'] {
+            .k-i-warning {
+                right: auto;
+            }
+        }
+    }
+
+    .k-datepicker,
+    .k-timepicker {
+
+        .k-i-warning {
+            right: calc( #{ button-inner-size( 1 ) } + #{ $input-padding-x-sm });
+        }
+
+        .k-rtl &,
+        &[dir='rtl'] {
+            .k-i-warning {
+                left: calc( #{ button-inner-size( 1 ) } + #{ $input-padding-x-sm });
+            }
+        }
+    }
+
+    .k-datetimepicker {
+
+        .k-i-warning {
+            right: calc( #{ button-inner-size( 2 ) } + #{ $input-padding-x-sm });
+        }
+
+        .k-rtl &,
+        &[dir='rtl'] {
+            .k-i-warning {
+                left: calc( #{ button-inner-size( 2 ) } + #{ $input-padding-x-sm });
+            }
+        }
+    }
+
+    // Timepicker
+    .k-timepicker {}
+
+    // Datetimepicker
+    .k-datetimepicker {
+
+        .k-select {
+            padding: 0;
+            border-left-width: 0;
+            align-items: stretch;
+        }
+        .k-link {
+            padding: $button-padding-y;
+            border-width: 0 0 0 1px;
+            border-style: solid;
+            border-color: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    }
+
+
+    // Dateinput
+    .k-dateinput {
+        position: relative;
+        border-width: 0;
+
+        .k-i-warning {
+            display: none;
+            position: absolute;
+            right: $padding-x;
+            top: 50%;
+            transform: translateY(-50%);
+            overflow: visible;
+        }
+
+        &.k-state-invalid .k-i-warning {
+            display: inline-block;
+        }
+
+        .k-rtl &,
+        &[dir='rtl'] {
+            .k-i-warning {
+                left: $padding-x;
+                right: auto;
+            }
+        }
+
+    }
+
+}

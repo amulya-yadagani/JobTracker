@@ -1,0 +1,28 @@
+@import '../../search.component.scss';
+
+.jt-gridlist-container-view {
+    overflow-y: scroll;
+    height: calc(100% - 38px);
+}
+
+.jt-grid-view {
+    height: calc(100% - 72px);
+}
+
+.selectedRow {
+    background: $backgroundLightColor !important;
+    color: $white !important;
+}
+
+.k-state-selected {
+    background: $white;
+}
+
+.well-xs__modified {
+    margin: 0px;
+}
+
+
+.k-grid-content {
+    overflow-y: scroll !important;
+}

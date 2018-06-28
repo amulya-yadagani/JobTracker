@@ -1,0 +1,95 @@
+@import '../search.component.scss';
+@import '../../../../styles.scss';
+
+
+@media (max-width:836px) {
+    .jt-field-intendation {
+        flex-direction:  column;
+    }
+}
+
+.jt-mandatoryField--align {
+    display: flex;
+    flex-direction: row;
+}
+.asterik{
+    color: red;
+    padding: 3px;
+  }
+
+#thumbnail, #list {
+    height: calc(100% - 0px);
+}
+
+.jt-field-intendation {
+    @include flex;
+    justify-content: space-around;
+}
+.jt-sub-field-conditional {
+    flex: 0.2;
+}
+.jt-logic-item {
+    &:hover {
+        background: $backgroundDarkColor;
+    }
+}
+.jt-sel-logic-active {
+    background: $backgroundColor;
+    color: #FFF;
+}
+.jt-sub-field-search {
+    flex: 0.8;
+    @include flex;
+    justify-content: space-around;
+}
+.jt-file-search-input {
+    padding: 5px 10px;
+    &::placeholder {
+        color: $light-black;
+    }
+}
+
+.jt-result-container {
+    height: calc(100% - 50px);
+}
+
+.jt-tab-content {
+    height: calc(100% - 60px);
+    border-right: 1px solid $light-black;
+    border-left: 1px solid $light-black;
+    border-bottom: 1px solid $light-black;
+}
+
+#Thumbnail, #List {
+    height: 100%;
+}
+//-------------input--------------------//
+.jt-input-field {
+    height: 2.5rem;
+    width: auto;
+}
+//-------------button-------------------//
+.jt-button__modification{
+    background: $backgroundColor;
+    border: 0px solid transparent;
+    color: $white;
+    font-weight: 600;
+    vertical-align: middle;
+    height: $min-elm-height;
+    width: $min-elm-width;
+    &:focus {
+        outline: 0;
+    }
+    &:hover {
+        background:$backgroundDarkColor;
+    }
+}
+.jt-dropdown__modification {
+    padding: 0.1rem;
+    font-size: 12px;
+    min-width: 9.5rem;
+}
+.jt-divider__modification {
+    margin: 0.2rem;
+}
+//--------------------------------------//

@@ -1,0 +1,10 @@
+<div class="hidden-xs jt-action-container">
+  <button class="btn-xs jt-common-button-style" [ngClass]="{'jt-disabled-access': eachAction.disable}" [hidden]="!eachAction.show" [disabled]="eachAction.disable" *ngFor="let eachAction of resultActionList; let i = index;" (click)="selectedAction(eachAction)">
+    <strong>{{eachAction.txt}}</strong>
+  </button>
+</div>
+<div class="hidden-sm hidden-md hidden-lg jt-action-responsive-container">
+  <button class="btn-xs jt-common-responsive-button-style" [ngClass]="{'jt-disabled-access': eachAction.disable}" [hidden]="!eachAction.show" [disabled]="eachAction.disable" *ngFor="let eachAction of resultActionList; let i = index;" (click)="selectedAction(eachAction)">
+    <strong>{{eachAction.txt}}</strong>
+  </button>
+</div>

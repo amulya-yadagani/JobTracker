@@ -1,0 +1,186 @@
+<div class="jt-pdf-search-container">
+  <form #pdfSearch>
+    <fieldset>
+      <legend>File Details
+        <app-search-button-bar [setTitle]="'PDF'" (searched)="onSearch(pdfSearch)" (cleared)="onClear(pdfSearch)"></app-search-button-bar>
+      </legend>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+              <span class="col-sm-4">File Name</span>
+              <div class="col-sm-8">
+                <input type="text" class="form-control input-sm" name="fileName" [(ngModel)]="pdfSearchModel.fileName"/>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+              <span class="col-sm-4">Job Number</span>
+              <div class="col-sm-8">
+                  <input type="text" class="form-control input-sm" name="jobNumber" [(ngModel)]="pdfSearchModel.jobNumber"/>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4" appMandatoryField>
+              <span class="asterik">*</span>
+              Magazine
+            </span>
+            <div class="col-sm-8">
+              <multi-select
+                (valueSelected)="valChanged($event)"
+                requiredValidation="Magazine Field is required"
+                [dropType]="'magazineId'"
+                [clearSelValues]="clearField"
+                [dataSource]="metadata.magazine" required></multi-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Component Type</span>
+            <div class="col-sm-8">
+              <multi-select
+                (valueSelected)="valChanged($event)"
+                [clearSelValues]="clearField"
+                [dropType]="'compCode'"
+                [dataSource]="metadata.componentType">
+              </multi-select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Keywords</span>
+            <div class="col-sm-8">
+              <input type="text" class="form-control input-sm" name="keywords" [(ngModel)]="pdfSearchModel.keywords"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Job Details</legend>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Request Number</span>
+            <div class="col-sm-8 jt-pdf-requestNo">
+              <!-- <button class="btn btn-default btn-xs glyphicon glyphicon-search" (click)="openRequestPopUp()"></button> -->
+              <input type="text" class="form-control input-sm" name="reqNumber" [(ngModel)]="pdfSearchModel.requestNumber"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Job Request</span>
+            <div class="col-sm-8">
+              <multi-select
+                (valueSelected)="valChanged($event)"
+                [clearSelValues]="clearField"
+                [dropType]="'requestNumber'"
+                [dataSource]="metadata.jobRequest">
+              </multi-select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Job Title</span>
+            <div class="col-sm-8">
+              <input type="text" class="form-control input-sm" name="jobTitle" [(ngModel)]="pdfSearchModel.title"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Vehicle</span>
+            <div class="col-sm-8">
+              <multi-select
+                (valueSelected)="valChanged($event)"
+                [clearSelValues]="clearField"
+                [dropType]="'vehicleCodeId'"
+                [dataSource]="metadata.vehicle">
+              </multi-select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Source</span>
+            <div class="col-sm-8">
+              <multi-select
+                (valueSelected)="valChanged($event)"
+                [clearSelValues]="clearField"
+                [dropType]="'sourceCodeId'"
+                [dataSource]="metadata.source"></multi-select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">AAM Type</span>
+            <div class="col-sm-8">
+              <multi-select
+                (valueSelected)="valChanged($event)"
+                [clearSelValues]="clearField"
+                [dropType]="'abcTagList'"
+                [dataSource]="metadata.aamTag" >
+              </multi-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+              <span class="col-sm-4">Created Date</span>
+              <div class="col-sm-8 jt-pdf-datepicker">
+                <kendo-datepicker class="form-control input-sm" [value]="pdfSearchModel.createdDateFrom" (valueChange)="onStartDateValueChange($event)"></kendo-datepicker>
+                <kendo-datepicker class="form-control input-sm" [value]="pdfSearchModel.createdDateTo" (valueChange)="onEndDateValueChange($event)"></kendo-datepicker>
+              </div>
+            </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+  <div [hidden]="!searched" class="jt-pdf-result-container">
+    <h4>Result</h4>
+    <app-result-tab [ontabload]="configTabList" (onTabSelection)="onTabSelection($event)"></app-result-tab>
+    <app-button-bar
+    [onResultActionConfig]="buttonBar"
+    [onResultTabType]="'PDF'"
+    [onResultType]="type"
+    (onResultAction)="onButtonBarAction($event)">
+    </app-button-bar>
+    <div id="pdf-tn-wrapper" [hidden]="!(type === 'thumbnail')">
+      <app-thumbnail
+        [onPageInformationChanges]="termInfo"
+        [onResultRecieved]="thumbnailModel"
+        [onDetailEvents] = "detailEventsThumbnail"
+        (onThumbNailAction)="onThumbNailActionUpdate($event)"
+        (onPageChange)="onPageChangeAction($event)"
+        (onPageSizeChange)="onPageSizeChangeAction($event)">
+      ></app-thumbnail>
+    </div>
+    <div id="pdf-list-wrapper" [hidden]="!(type === 'list')">
+      <app-gridlist
+        [onColumnConfig]="columnConfig"
+        [onPageInformationChanges]="termInfo"
+        [onResultRecieved]="gridModel"
+        [onDetailEvents]="detailEventsGrid"
+        [onExportGrid]="isExporTriggered"
+        (onGridListAction)="onGridRowActionUpdate($event)"
+        (onDownloadSelect)="onDownloadAction($event)"
+        (onThumbNailAction)="onThumbNailActionUpdate($event)"
+        (onPageChange)="onPageChangeAction($event)"
+        (onPageSizeChange)="onPageSizeChangeAction($event)"
+      ></app-gridlist>
+    </div>
+  </div>
+</div>

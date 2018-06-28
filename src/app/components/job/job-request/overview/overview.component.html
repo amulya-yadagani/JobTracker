@@ -1,0 +1,365 @@
+<div>
+  <form class="overview-form" #overviewForm>
+    <!-- <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <span class="col-sm-4">Request Number</span>
+          <div class="col-sm-8">
+            <input type="text" class="form-control input-sm" name="reqNumber"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <span class="col-sm-4">Job Request</span>
+          <div class="col-sm-8">
+            <input type="text" class="form-control input-sm" name="jobRequest"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <span class="col-sm-4">Job Title</span>
+          <div class="col-sm-8">
+            <input type="text" class="form-control input-sm" name="title"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Job Number</span>
+            <div class="col-sm-8">
+              <input type="text" class="form-control input-sm" name="jobNumber"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Magazine</span>
+            <div class="col-sm-8">
+              <input type="text" class="form-control input-sm" name="jobNumber"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <span class="col-sm-4">Job Title</span>
+            <div class="col-sm-8">
+              <input type="text" class="form-control input-sm" name="reqNumber"/>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="row">
+          <div class="col-md-3">
+              <div class="form-group">
+                  <span class="col-sm-5">Request Number:</span>
+                  <div class="col-sm-7">
+                      <input type="text" class="form-control input-sm" id="request-no" readonly>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <span class="col-sm-4 required">Job Request:</span>
+                  <div class="col-sm-8">
+                    <kendo-combobox [textField]="'value'" id="job-request" required [valueField]="'key'">
+                    </kendo-combobox>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-5">
+              <div class="form-group">
+                  <span class="col-md-5 required">Job Title:</span>
+                  <div class="col-md-7">
+                      <input type="text" class="form-control input-sm" id="job-title">
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+              <div class="form-group">
+                  <span class="col-sm-5">Job Number:</span>
+                  <div class="col-sm-7">
+                      <input type="text" class="form-control input-sm" id="job-number" readonly>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <span class="col-sm-4 required">Magazine:</span>
+                  <div class="col-sm-8">
+                    <!-- <select class="form-control  input-sm" id="magazine">
+                      <option></option>
+                    </select> -->
+                    <kendo-combobox [textField]="'value'" id="magazine" required [valueField]="'key'">
+                    </kendo-combobox>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-5">
+              <div class="form-group">
+                  <span class="col-md-5 required">Marketing:</span>
+                  <div class="col-md-7">
+                      <div class="input-group role">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <!-- <select class="form-control input-sm" id="marketing">
+                              <option></option>
+                          </select> -->
+                          <kendo-combobox [textField]="'value'" id="marketing" required [valueField]="'key'">
+                          </kendo-combobox>
+                      </div>
+                      <div class="input-group role">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                        <input type="text" class="form-control input-sm" id="mkt-contact" readonly>
+                      </div>
+                  </div>
+                  <!-- <div class="col-md-4">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                          <input type="text" class="form-control input-sm">
+                      </div>
+                  </div> -->
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+              <div class="form-group">
+                  <span class="col-sm-5">Created By:</span>
+                  <div class="col-sm-7">
+                      <input type="text" class="form-control input-sm" id="created-by" readonly>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <span class="col-sm-4 required">Job Type:</span>
+                  <div class="col-sm-8">
+                    <!-- <select class="form-control input-sm" id="job-type">
+                    <option></option> -->
+                    <kendo-combobox [textField]="'value'" id="job-type" required [valueField]="'key'">
+                    </kendo-combobox>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-5">
+              <div class="form-group">
+                  <span class="col-md-5">Alt Marketing:</span>
+                  <div class="col-md-7">
+                      <div class="input-group role">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <!-- <select class="form-control input-sm" id="alt-mkt-contacts">
+                              <option></option>
+                          </select> -->
+                          <kendo-combobox [textField]="'value'" id="alt-mkt-contacts" [valueField]="'key'">
+                          </kendo-combobox>
+                      </div>
+                      <div class="input-group role">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                        <input type="text" class="form-control input-sm" id="alt-mkt-contact" readonly>
+                      </div>
+                  </div>
+                  <!-- <div class="col-md-4">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                          <input type="text" class="form-control input-sm" id="email">
+                      </div>
+                  </div> -->
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+              <div class="form-group">
+                  <span class="col-sm-5">Created Date:</span>
+                  <div class="col-sm-7">
+                      <input type="text" class="form-control input-sm" id="created-date" readonly>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <span class="col-sm-4 required">Source:</span>
+                  <div class="col-sm-8">
+                    <!-- <select class="form-control  input-sm" id="source">
+                    <option></option> -->
+                    <kendo-combobox [textField]="'value'" id="source" required [valueField]="'key'">
+                    </kendo-combobox>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-5">
+              <div class="form-group">
+                  <span class="col-md-5">Promotion Coordinator:</span>
+                  <div class="col-md-7">
+                      <div class="input-group role">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <!-- <select class="form-control  input-sm">
+                              <option></option>
+                          </select> -->
+                          <kendo-combobox [textField]="'value'" id="pc-contact" [valueField]="'key'">
+                          </kendo-combobox>
+                      </div>
+                      <div class="input-group role">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                        <input type="text" class="form-control input-sm" readonly>
+                      </div>
+                  </div>
+                  <!-- <div class="col-md-4">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                          <input type="text" class="form-control input-sm" id="email">
+                      </div>
+                  </div> -->
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+              <div class="form-group">
+                  <span class="col-sm-5">Submit Date:</span>
+                  <div class="col-sm-7">
+                      <input type="text" class="form-control input-sm" id="submit-date" readonly>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <span class="col-sm-4 required">Vehicle:</span>
+                  <div class="col-sm-8">
+                    <!-- <select class="form-control input-sm">
+                    <option></option> -->
+                    <kendo-combobox [textField]="'value'" id="vehicle" required [valueField]="'key'">
+                    </kendo-combobox>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-5">
+              <div class="form-group">
+                  <span class="col-md-5 required">Creative PM:</span>
+                  <div class="col-md-7">
+                      <div class="input-group role">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <!-- <select class="form-control  input-sm">
+                              <option></option>
+                          </select> -->
+                          <kendo-combobox [textField]="'value'" id="creative-pm-contact" required [valueField]="'key'">
+                          </kendo-combobox>
+                      </div>
+                      <div class="input-group role">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                        <input type="text" class="form-control input-sm" readonly>
+                      </div>
+                  </div>
+                  <!-- <div class="col-md-4">
+                      <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                          <input type="text" class="form-control input-sm" id="email">
+                      </div>
+                  </div> -->
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+              <div class="form-group">
+                  <span class="col-sm-5">Job Status:</span>
+                  <div class="col-sm-7">
+                    <!-- <select class="form-control input-sm">
+                    <option></option> -->
+                    <kendo-combobox [textField]="'value'" id="job-status" [valueField]="'key'">
+                    </kendo-combobox>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <span class="col-sm-4">Complexity:</span>
+                  <div class="col-sm-8">
+                      <!-- <select class="form-control input-sm" id="complexity">
+                      <option></option> -->
+                      <kendo-combobox [textField]="'value'" id="complexity" [valueField]="'key'">
+                      </kendo-combobox>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-5">
+              <div class="form-group">
+                  <span class="col-md-5">Compliance Review Needed:</span>
+                  <div class="col-md-4">
+                    <!-- <select class="form-control input-sm">
+                      <option></option>
+                    </select> -->
+                    <input type="checkbox"/>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-4">
+              <div class="form-group">
+                  <span class="col-sm-4">Connect to Spec:</span>
+                  <div class="col-sm-8">
+                      <!-- <select class="form-control input-sm" id="connectToSpec">
+                      <option></option>
+                  </select> -->
+                    <input type="checkbox"/>
+                  </div>
+              </div>
+          </div>
+          <div class="col-sm-5">
+              <div class="form-group">
+                  <span class="col-md-5">Rush:</span>
+                  <div class="col-md-4">
+                    <!-- <select class="form-control input-sm">
+                      <option></option>
+                    </select> -->
+                    <input type="checkbox"/>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-4">
+          </div>
+          <div class="col-sm-5">
+              <div class="form-group">
+                  <span class="col-md-5">Rush Reason:</span>
+                  <div class="col-md-7">
+                      <input type="text" class="form-control input-sm" id="email">
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-4">
+          </div>
+          <div class="col-sm-5">
+              <div class="form-group">
+                  <span class="col-md-5">Creative PM Log:</span>
+                  <div class="col-md-7">
+                      <textarea type="textarea" class="form-control input-sm" id="pm-log" placeholder="Enter Creative PM Log"></textarea>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>

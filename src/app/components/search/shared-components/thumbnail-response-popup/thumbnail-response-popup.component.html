@@ -1,0 +1,10 @@
+<div class="jt-file-error-message-container">
+  <h4>{{titleMessage}}</h4>
+  <h5>Error Details</h5>
+  <div class="jt-file-error-message">
+    <h5>The following files couldn't be found:</h5>
+    <p *ngFor="let eachIdFile of idListInformation; let i = index;">
+      {{eachIdFile}}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,181 @@
+<ul class="nav nav-tabs tabs-jt cover-search">
+  <li class="active" id="searchList" (click)="checkActive()"><a href="#search" data-toggle="tab" [class.active]="isSearchActive"><span class="tab-title">Search</span></a></li>
+  <li id="uploadList" (click)="checkActive()"><a href="#upload" data-toggle="tab" [class.active]="isUploadActive"><span class="tab-title">Upload</span></a></li>
+</ul>
+<div class="tab-content tab-jt">
+  <div id="search" class="tab-pane active">
+    <form #csSearch="ngForm" class="form">
+      <fieldset>
+        <legend>Cover Search</legend>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4"><span class="required"></span>Magazine</span>
+              <div class="col-sm-8">
+                <kendo-combobox [data]="metadata" requiredValidation="Magazine Field is required" [textField]="'value'" name="magazine" [(ngModel)]="magazineObj"
+                  required #searchMagazine="ngModel" style="width:100%" [valueField]="'key'" (valueChange)="searchValueChange($event)">
+                </kendo-combobox>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4">File Name</span>
+              <div class="col-sm-8">
+                <input type="text" class="form-control input-sm" name="fileName" [(ngModel)]="search.fileName" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4">Keywords/Description</span>
+              <div class="col-sm-8">
+                <textarea type="textarea" rows="1" class="form-control input-sm" name="keywords" [(ngModel)]="search.keywords"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <span class="col-sm-4">Special Issue</span>
+            <div class="col-sm-8">
+              <label class="radio-inline"><input type="radio" name="optradio" value ="Yes" [(ngModel)]="search.specialIssue">Yes</label>
+              <label class="radio-inline"><input type="radio" name="optradio" value ="No" [(ngModel)]="search.specialIssue">No</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4">Issue Month</span>
+              <div class="col-sm-8">
+                <input type="number" min="1" max="12" class="form-control input-sm" name="issueMonth" [(ngModel)]="search.issueMonth" (blur)="validateMonth(search.issueMonth)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4">Issue Date/ Issue#</span>
+              <div class="col-sm-5">
+                <span *ngIf="!isCircmanMagazine && search.specialIssue == 'Yes'"><kendo-datepicker [(value)]="search.issueDate"></kendo-datepicker></span>
+                <span *ngIf="!isCircmanMagazine && search.specialIssue == 'No'">
+                  <select class="form-control input-sm" [disabled]="search.specialIssue == 'No'">
+                  <option value=""></option>
+                </select>
+                </span>
+                <span *ngIf="isCircmanMagazine">
+                <select class="form-control input-sm" [ngModel]="search.issueDate | json" name="searchIssueDate" (ngModelChange)="searchIssueDateChange($event)">
+                  <option *ngFor="let issueDate of issueDataValues" [value]="issueDate | json">{{issueDate.issueCoverDate}} &nbsp;&nbsp; {{issueDate.issue}}</option>
+                </select>
+                </span>
+              </div>
+              <div class="col-sm-3">
+                <input type="text" *ngIf="isCircmanMagazine" class="form-control input-sm" name="issueNumber" [(ngModel)]="search.issueNumber"
+                />
+                <input type="text" *ngIf="!isCircmanMagazine && search.specialIssue == 'No'" [disabled]="search.specialIssue == 'No'" class="form-control input-sm"
+                  name="issueNumber" [(ngModel)]="search.issueNumber" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4">Issue Year</span>
+              <div class="col-sm-8">
+                <input type="text" minlength="4" maxlength="4" class="form-control input-sm" name="issueYear" [(ngModel)]="search.issueYear"
+                  (blur)="validateYear(search.issueYear)" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <app-search-button-bar [setTitle]="'Cover'" [disableSearch]="searchMagazine.errors ? searchMagazine.errors.required : false"
+        (searched)="onSearch($event)" (cleared)="onClear($event)"></app-search-button-bar>
+    </form>
+    <div [hidden]="!searched">
+      <h4>Result</h4>
+      <app-result-tab [ontabload]="configTabList" (onTabSelection)="onTabSelection($event)"></app-result-tab>
+      <app-button-bar [onResultActionConfig]="buttonBar" [onResultTabType]="'Cover'" [onResultType]="type" (onResultAction)="onButtonBarAction($event)">
+      </app-button-bar>
+      <app-thumbnail 
+        [hidden]="!(type === 'thumbnail')" 
+        [onPageInformationChanges]="termInfo" 
+        [onResultRecieved]="_searchResultModel"
+        [onDetailEvents]="detailEventsThumbnail" 
+        (onThumbNailAction)="onThumbNailActionUpdate($event)" 
+        (onPageChange)="onPageChangeAction($event)"
+        (onPageSizeChange)="onPageSizeChangeAction($event)">
+      </app-thumbnail>
+      <app-gridlist 
+        [hidden]="!(type === 'list')"
+        [onColumnConfig]="columnConfig" 
+        [onPageInformationChanges]="termInfo" 
+        [onResultRecieved]="_searchResultModel"
+        [onDetailEvents]="detailEventsGrid"
+        [onExportGrid]="isExporTriggered"
+        (onGridListAction)="onGridRowActionUpdate($event)"
+        (onDownloadSelect)="onDownloadAction($event)"
+        (onThumbNailAction)="onThumbNailActionUpdate($event)"
+        (onPageChange)="onPageChangeAction($event)"
+        (onPageSizeChange)="onPageSizeChangeAction($event)">
+      </app-gridlist>
+    </div>
+  </div>
+  <div id="upload" class="tab-pane">
+    <form #csUpload="ngForm" class="form">
+      <fieldset>
+        <legend>Upload</legend>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4"><span class="required"></span>Magazine</span>
+              <div class="col-sm-8">
+                <kendo-combobox [data]="metadata" [textField]="'value'" requiredValidation="Magazine Field is required" name="magazine" [(ngModel)]="magazineUploadObj"
+                  (valueChange)="uploadValueChange($event)" #uploadMagazine="ngModel" required style="width:100%" [valueField]="'key'">
+                </kendo-combobox>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4">Special Issue</span>
+              <div class="col-sm-8">
+                <label class="radio-inline"><input type="radio" name="optradio" value ="Yes" [(ngModel)]="upload.specialIssue">Yes</label>
+                <label class="radio-inline"><input type="radio" name="optradio" value ="No" [(ngModel)]="upload.specialIssue">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4">Issue Date/Issue #</span>
+              <div class="col-sm-5">
+                <span *ngIf="upload.specialIssue == 'Yes'"><kendo-datepicker [(value)]="uploadIssueDate"></kendo-datepicker></span>
+                <span *ngIf="upload.specialIssue == 'No'">
+                   <select class="form-control input-sm">
+                  <option value=""></option>
+                </select>
+                </span>
+              </div>
+              <div class="col-sm-3">
+                <input type="text" [disabled]="upload.specialIssue == 'Yes'" class="form-control input-sm" name="issueNumber" [(ngModel)]="upload.issueNumber"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group form-group-sm">
+              <span class="col-sm-4">Keywords/Description</span>
+              <div class="col-sm-8">
+                <textarea type="textarea" rows="1" class="form-control input-sm" name="keywords" [(ngModel)]="upload.keywords"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <app-search-button-bar searchNotRequired="true" [setTitle]="'Cover'" [disableSearch]="uploadMagazine.errors? uploadMagazine.errors.required : false"
+        (cleared)="onClear($event)"></app-search-button-bar>
+    </form>
+  </div>
+</div>

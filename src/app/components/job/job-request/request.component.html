@@ -1,0 +1,30 @@
+<div class="row node-wrapper">
+  <div class="col-sm-12 col-md-2">
+    <ul class="sidebar-nav">
+      <li class="active" data-toggle="tab" attr.data-target="#req-overview-{{id}}">Overview</li>
+      <li data-toggle="tab" attr.data-target="#req-details-{{id}}">Details</li>
+      <li data-toggle="tab" attr.data-target="#req-bkp-comp-{{id}}">Backup Components</li>
+      <li data-toggle="tab" attr.data-target="#req-status-log-{{id}}">Status Log</li>
+      <li data-toggle="tab" attr.data-target="#req-error-{{id}}">Error</li>
+    </ul>
+  </div>
+  <div class="col-sm-12 col-md-10">
+    <div class="tab-content tab-jt">
+      <div id="req-overview-{{id}}" class="tab-pane active">
+        <jt-job-request-overview></jt-job-request-overview>
+      </div>
+      <div id="req-details-{{id}}" class="tab-pane">
+        Details
+      </div>
+      <div id="req-bkp-comp-{{id}}" class="tab-pane">
+        Backup Components
+      </div>
+      <div id="req-status-log-{{id}}" class="tab-pane">
+        Statue Log
+      </div>
+      <div id="req-error-{{id}}" class="tab-pane">
+        Error
+      </div>
+    </div>
+  </div>
+</div>

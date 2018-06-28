@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Job Tracker 2.0</title>
+  <base href="/">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+
+  <style>
+    .root {
+      font-family: "Segoe UI", Arial, sans-serif;
+      position: absolute;
+      display: block;
+      font-size: 2em;
+      margin: 0 auto;
+      text-align: center;
+      left: 1px;
+      right: 1px;
+      top: calc(50% - 1em);
+    }
+  </style>
+</head>
+<body class="jt-skin">
+  <!--div is used to display message in case user is not authenticated-->
+  <app-root><div class="root"></div></app-root>
+  <div id="loader" class="loader loader-default is-active">Authenticating...</div>
+  <div id="notification"></div>
+</body>
+</html>

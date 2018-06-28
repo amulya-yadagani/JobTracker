@@ -1,0 +1,25 @@
+<div class="jt-global-list-container">
+  <app-button-bar
+    [hidden]="!searched"
+    [onResultActionConfig]="resultAction"
+    [onResultTabType]="'global'"
+    [onResultType]="'list'"
+    (onResultAction)="onSetResultAction($event)">
+  </app-button-bar>
+  <app-gridlist
+    [hidden]="!searched"
+    [onGridId]="'global-details-list'"
+    [onDetailUrl]="detailsURL"
+    [onDownloadUrl]="downloadURL"
+    [onColumnConfig]="gridColumn"
+    [onResultRecieved]="onResultRecieved"
+    [onPageInformationChanges]="pageInformation"
+    [onExportGrid]="isExportTriggered"
+    [onExportName]="'global-search'"
+    [onDetailEvents]="detailEventsGridList"
+    (onGridListAction)="onGridListActionUpdate($event)"
+    (onDownloadSelect)="onDownLoadAction($event)"
+    (onPageChange)="onPageChangeAction($event)"
+    (onPageSizeChange)="onPageSizeChangeAction($event)">
+  </app-gridlist>
+</div>

@@ -1,0 +1,158 @@
+@include exports('input/theme') {
+
+    $radio-border: $input-border !default;
+    $radio-bg: $input-bg !default;
+    $radio-checked-bg: $accent !default;
+    $radio-checked-text: $accent-contrast !default;
+
+    $checkbox-bg: $input-bg !default;
+    $checkbox-border: $input-border !default;
+    $checkbox-checked-bg: $accent !default;
+    $checkbox-checked-border: $accent !default;
+    $checkbox-checked-text: $accent-contrast !default;
+
+    $focused-shadow: 0 0 0 2px rgba(0, 0, 0, .06) !default;
+    $focused-checked-shadow: 0 0 0 2px rgba($accent, .3) !default;
+
+    .k-textbox,
+    .k-input.k-textbox,
+    .k-textarea {
+        @include appearance( "input" );
+        background-clip: padding-box;
+
+        .k-ie11 &,
+        .k-edge12 &,
+        .k-edge13 & {
+            background-clip: border-box;
+        }
+
+        &:hover,
+        &.k-state-hover {
+            border-color: $input-hovered-border;
+        }
+
+        &:focus,
+        &.k-state-focus {
+            color: $input-focused-text;
+            border-color: $input-focused-border;
+        }
+
+        &.k-state-invalid,
+        &.ng-invalid.ng-touched,
+        &.ng-invalid.ng-dirty {
+            color: $error;
+            border-color: $invalid-border-color;
+        }
+
+        &::-moz-selection {
+            background-color: $accent;
+            color: $accent-contrast;
+        }
+    }
+
+    .k-textbox,
+    .k-input,
+    .k-textarea {
+        &::selection {
+            background-color: $accent;
+            color: $accent-contrast;
+        }
+
+        .k-state-disabled & {
+            &::selection {
+                color: $input-text;
+                background-color: transparent;
+            }
+        }
+    }
+
+    .k-textbox,
+    .k-input,
+    .k-input.k-textbox,
+    .k-textarea {
+        &::placeholder {
+            color: rgba($input-text, .5);
+        }
+    }
+
+    .k-radio + .k-radio-label {
+        &::before {
+            border-color: $radio-border;
+            background-color: $radio-bg;
+        }
+    }
+
+    .k-radio:checked + .k-radio-label {
+        &::before {
+            background-color: $radio-checked-bg;
+            border-color: transparent;
+            box-shadow: 0 0 1px 0 $radio-checked-bg inset;
+        }
+
+        &::after {
+            background-color: $radio-checked-text;
+        }
+    }
+
+    .k-checkbox-label::before {
+        background-color: $checkbox-bg;
+        border-color: $checkbox-border;
+    }
+
+    .k-checkbox:checked + .k-checkbox-label::before {
+        background-color: $checkbox-checked-bg;
+        border-color: $checkbox-checked-border;
+        color: $checkbox-checked-text;
+    }
+
+    .k-checkbox:indeterminate + .k-checkbox-label::after {
+        background-color: $checkbox-checked-bg;
+        border-color: $checkbox-checked-border;
+    }
+
+    .k-checkbox:focus + .k-checkbox-label::before,
+    .k-radio:focus + .k-radio-label::before {
+        box-shadow: $focused-shadow;
+        border-color: $input-hovered-border;
+    }
+
+    .k-checkbox:focus:checked + .k-checkbox-label::before,
+    .k-radio:focus:checked + .k-radio-label::before {
+        box-shadow: $focused-checked-shadow;
+        border-color: $accent;
+    }
+
+    fieldset {
+        border-color: $input-border;
+    }
+
+    fieldset legend {
+        color: $header-text;
+    }
+
+    $form-fieldset-legend-text: darken($text-color, 13%) !default;
+
+    .k-form,
+    .k-form-inline {
+        color: $text-color;
+
+        fieldset {
+            legend {
+                color: $form-fieldset-legend-text;
+            }
+        }
+
+        .k-field-info {
+            color: lighten($text-color, 33%);
+        }
+
+        .k-alert-error {
+            color: $error;
+        }
+    }
+
+    .k-required,
+    .k-required.k-field-info {
+        color: $accent;
+    }
+}

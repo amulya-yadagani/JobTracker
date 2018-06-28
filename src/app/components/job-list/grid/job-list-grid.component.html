@@ -1,0 +1,45 @@
+<div id="gridId">
+  <span id="sort-msg">Note: For multi-column sort, hold down the Shift key</span>
+  <button class="btn btn-sm btn-primary resetFilter" (click)="onResetConfirm()" [disabled]="!reqParamModified">Reset</button>
+</div>
+<div class="well well-xs" *ngIf="totalItems">
+    <span class="footer-left">
+    <nav aria-label="Page navigation example footer" class="footer">
+        <ul class="pagination pagination-sm">
+            <li class="page-item">
+                <a class="btn btn-link page-link" aria-label="Previous" [class.disabled]="!hasPreviousPage" (click)="moveToFirstPage(pageIndex,totalPages)">
+                    <span class="glyphicon glyphicon-fast-backward"></span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="btn btn-link page-link" aria-label="Previous" [class.disabled]="!hasPreviousPage" (click)="previous(pageIndex,totalPages)">
+                    <span class="glyphicon glyphicon-triangle-left"></span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link">{{pageIndex}}</a></li>
+            <li class="page-item">
+                <a class="btn btn-link page-link" aria-label="Next" [class.disabled]="!hasNextPage" (click)="next(pageIndex,totalPages)">
+                    <span class="glyphicon glyphicon-triangle-right"></span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="btn btn-link page-link" aria-label="Next" [class.disabled]="!hasNextPage" (click)="moveToLastPage(pageIndex,totalPages)">
+                    <span class="glyphicon glyphicon-fast-forward"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <span class="footer">Total Count = {{totalItems}}</span>
+    </span>
+    <span class="footer-right">
+    <span class="footer pageSize">Records Per Page</span>
+    <select class="footer pageSize" [(ngModel)]="pageSize" (change)="onPageSizeChange(pageSize)" style="display:inline-block;">
+        <option>25</option>
+        <option>50</option>
+        <option>75</option>
+        <option>100</option>
+    </select>
+    <span>&nbsp;&nbsp;&nbsp;</span>
+    <!-- <span class="footer">Page {{pageIndex}} | {{totalPages}}</span></span> -->
+    <span class="footer">Page <input type="text" [ngModel]="pageIndex" #pageNo (keyup.enter)="onPageIndexChange(pageNo)" (blur)="onPageIndexChange(pageNo)"/> of {{totalPages}}</span></span>
+</div>
